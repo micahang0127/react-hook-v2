@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+### React Hook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 개념
 
-## Available Scripts
+  - eject : <br>
+    babel, wapack 등의 설정들을 모두 꺼낸다. 하지만 한번 꺼내면 다시 넣을 수 없다. <br>
+    즉, 함부로 쓰면 안됨
 
-In the project directory, you can run:
+- npm start & npm run build
+  npm start <br>
 
-### `npm start`
+  1. compoile & bundling 2) .env.development 실행됨
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  npm run build <br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  1. compoile & bundling 2) .env.production 실행됨
 
-### `npm test`
+- 자동완성
+  rsc : 함수형 컴포넌트 자동완성
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 기타
 
-### `npm run build`
+  - 객체 key값 동적으로 설정
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    <br>
+    `
+    ex>  
+    let name = "myName"
+    let obj = {
+        [name]: "리액트"
+    }
+    `
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    - onKeyDown / onKeyPress
+      onKeyPress는 사용 중단됨. 이제 onKeyDown으로 쓰면됨
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+          <br>
+          `
+          onKeyPress={handleEnter} (X)
+          onKeyDown={handleEnter} (O)
+          `
 
-### `npm run eject`
+    - component Props
+      컴포넌트 하단에 Props에 대한 설정
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+        <br>
+        `
+            // props를 해당 컴포넌트에서 선언 해줄수 있음
+            MyComponentFunc.defaultProps = {
+                name: "리액트JS",
+            };
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+            // props의 type을 주면 warning을 막을수 있다.
+            // 빌드 시, warning은 지우고 빌드해야 한다.
+            MyComponentFunc.propTypes = {
+                name: PropTypes.string,
+                age: PropTypes.number.isRequired,
+            };
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+      `
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    - reduxjs/toolkit 으로 변경
+      redux, redux-thunk => reduxjs/toolkit
 
-## Learn More
+        <br>
+        `
+            1) package.json에서 삭제
+            "devDependencies": {
+                "redux-devtools-extension": "^2.13.9"
+            }
+            는 composeWithDevTools 때문에 사용한 것이므로 삭제
+            
+            2) 
+            "redux": "^4.1.1",
+            "redux-thunk": "^2.3.0",
+            도 삭제
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+            3) reduxjs/toolkit 설치
+                $  npm i @reduxjs/toolkit
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+            4) configureStore 사용
 
-### Code Splitting
+      `
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    - 클래스 컴포넌트 생명주기 (Life Cycle)
+      componentDidMount : <br>
+      hook useEffect()
+      <br><br>
+      shouldComponentUpdate : <br>
+      return 값이 true면 재렌더링(render) / false면 렌더링(X)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br><br>
+[강의] <br>
+주최 : 한국소프트웨어기술진흥협회 & HRD
+기관 : 한국소프트웨어교육원
+유형 : 국가인적자원개발컨소시엄
