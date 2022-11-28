@@ -1,28 +1,32 @@
 ### React Hook
 
-- 개념
+* 개념
 
   - eject : <br>
     babel, wapack 등의 설정들을 모두 꺼낸다. 하지만 한번 꺼내면 다시 넣을 수 없다. <br>
     즉, 함부로 쓰면 안됨
 
-- npm start & npm run build
-  npm start <br>
+  - npm start / npm run build
+    npm start <br>
+      : compoile & bundling 2) .env.development 실행됨
 
-  1. compoile & bundling 2) .env.development 실행됨
+    npm run build <br>
+      : compoile & bundling 2) .env.production 실행됨
 
-  npm run build <br>
+<br>
 
-  1. compoile & bundling 2) .env.production 실행됨
+* 자동완성 
 
-- 자동완성
-  rsc : 함수형 컴포넌트 자동완성
+  - rsc : 함수형 컴포넌트 자동완성
 
-- 기타
+<br>
+
+* 기타
 
   - 객체 key값 동적으로 설정
 
     <br>
+    
     `
     ex>  
     let name = "myName"
